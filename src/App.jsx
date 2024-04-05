@@ -13,6 +13,11 @@ import {
 } from 'react-router-dom'
 
 function Root() {
+
+  const handleSubmit = (data) => {
+    console.log('Datan skickad:', data)
+  }
+
   return(
     <>
       <NavBar />
