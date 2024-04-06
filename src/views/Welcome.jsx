@@ -2,6 +2,7 @@ import 'bootstrap/dist/css/bootstrap.css'
 import styled from 'styled-components'
 import { Button } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
+import PropTypes from 'prop-types'
 
 const Stajl = styled.div `
   background-color: lightgrey;
@@ -18,10 +19,10 @@ const Buttons = styled(Button) `
   padding: 40px;
 `
 
-function Welcome() {
+function Welcome(props) {
   return (
     <Stajl>
-      <h1>Välkommen!</h1>
+      <h1>Välkommen, {props.name}!</h1>
       <h4>Vill du lyssna på något kul radioprogram?</h4>
       <Link to="./Radio1">
         <Buttons variant="secondary">Jamen, det låter ju trevligt!</Buttons>
@@ -32,6 +33,10 @@ function Welcome() {
       <Buttons variant="secondary">Jag vill bli överraskad</Buttons>
     </Stajl>
   )
+}
+
+Welcome.propTypes = {
+  name: PropTypes.string
 }
 
 export default Welcome

@@ -1,5 +1,9 @@
+import { useState } from 'react'
 import { Formik, Form, Field, ErrorMessage } from 'formik'
 import * as Yup from 'yup'
+// Importerar en anpassad hook för att använda tillståndet från suggestionlist
+import { useSuggestion } from '../components/SuggestionList'
+import Submits from '../components/Submits'
 
 // Provade yup-validering, för du vet, the more you fuck around, the more you're gonna find out.
 const validationSchema = Yup.object().shape({
@@ -8,12 +12,18 @@ const validationSchema = Yup.object().shape({
 })
 
 const Suggestions = () => {
+  // Anpassad hook för att hämta tillstånd från SuggestionList-komponenten
+  const { addSuggestion } = useSuggestion()
+  const [suggestedPrograms, setSuggestedPrograms] = useState([])
+
   const initialValues = {
     program: '',
     motivation: '',
   }
 
+  // Funktion som körs när formuläret skickas
   const onSubmit = (values, { resetForm }) => {
+    addSuggestion(values)
     console.log(values)
     resetForm()
   }
@@ -40,6 +50,8 @@ const Suggestions = () => {
             <button type="submit">Skicka</button>
           </Form>
       </Formik>
+      {/* Renderar Submits-komponenten för att visa inskickade förslag */}
+      <Submits programs={suggestedPrograms} />
     </div>
   )
 }

@@ -21,7 +21,7 @@ function About() {
     <>
       <Wow>
         <h4>Om det här projektet</h4>
-        <p>Jaha, vill du veta vad det här projektet handlar om och hur jag motiverar det? Vad handlar ens livet om?</p>
+        <p>Jahaja, vill du veta vad det här projektet handlar om och hur jag motiverar det? Vad handlar ens livet om?</p>
       <Buttons variant="secondary">Hmm, jag kanske bara ska lyssna på något istället.</Buttons>
       </Wow>
     </>
