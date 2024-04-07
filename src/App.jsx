@@ -31,7 +31,7 @@ function App() {
     {
       children: [
         { element: <Welcome name="Vanja"/>, path: '/' },
-        { element: <About />, path: '/about/' },
+        { element: <About />, path: '/about/:project' },
         { element: (
           <SuggestionsProvider>
             <Suggestions />

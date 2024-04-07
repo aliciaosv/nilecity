@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 
 const SuggestionList = createContext()
 
+// eslint-disable-next-line react-refresh/only-export-components
 export const useSuggestion = () => useContext(SuggestionList)
 
 export const SuggestionsProvider =({ children }) => {

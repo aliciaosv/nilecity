@@ -1,30 +1,39 @@
-// import PropTypes from 'prop-types'
 import { useSuggestion } from '../components/SuggestionList'
+import Table from 'react-bootstrap/Table'
+import styled from 'styled-components'
+
+const Div = styled.div `
+  padding: 80px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+`
 
 const Submits  = () => {
   const { suggestions } = useSuggestion()
   return(
-    <div>
+    <Div>
       <h3>Inskickade förslag</h3>
-      <ul>
-        {suggestions.map((program, data) => (
-          <li key={data}>
-            <p>Program: {program.program}</p>
-            <p>Motivering: {program.motivation}</p>
-          </li>
-        ))}
-      </ul>
-    </div>
+      <Table striped bordered hover>
+        <thead>
+          <tr>
+            <th>Program</th>
+            <th>Motivering</th>
+          </tr>
+        </thead>
+        <tbody>
+          {suggestions.map((program, index) => (
+            <tr key={index}>
+              <td>{program.program}</td>
+              <td>{program.motivation}</td>
+            </tr>
+          ))}
+        </tbody>
+      </Table>
+    </Div>
   )
 }
-
-// Submits.propTypes = {
-//   programs: PropTypes.arrayOf(
-//     PropTypes.shape({
-//       program: PropTypes.string.isRequired,
-//       motivation: PropTypes.string.isRequired
-//     })
-//   ).isRequired
-// }
 
 export default Submits

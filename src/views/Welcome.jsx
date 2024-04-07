@@ -17,9 +17,14 @@ const Buttons = styled(Button) `
   margin-top: 10px;
   margin-bottom: 10px;
   padding: 40px;
+  width: 100%;
 `
 
 function Welcome(props) {
+
+  const surprise = () => {
+    alert('Ha! Nu blev du allt överraskad va?')
+  }
   return (
     <Stajl>
       <h1>Välkommen, {props.name}!</h1>
@@ -30,7 +35,7 @@ function Welcome(props) {
       <Link to="./Suggestions">
         <Buttons variant="secondary">Jag vill posta ett programförslag</Buttons>
       </Link>
-      <Buttons variant="secondary">Jag vill bli överraskad</Buttons>
+      <Buttons variant="secondary" onClick={surprise}>Jag vill bli överraskad</Buttons>
     </Stajl>
   )
 }
